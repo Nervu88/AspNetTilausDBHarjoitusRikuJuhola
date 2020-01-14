@@ -1,4 +1,4 @@
 https://kalakauppatilausdbharjoitus.azurewebsites.net/
 
 Username: Riku
-Password: Careeria123
+Password:xxxxxxxx
