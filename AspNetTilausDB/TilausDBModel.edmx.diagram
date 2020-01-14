@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d696c3182a8940939462ddb21c2665db" Name="Diagram1">
+        <EntityTypeShape EntityType="TilausDBModel.Asiakkaat" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Esimiehet" Width="1.5" PointX="3.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Henkilot" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Logins" Width="1.5" PointX="7.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Postitoimipaikat" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Regions" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Shippers" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Tilaukset" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Tilausrivit" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TilausDBModel.Tuotteet" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TilausDBModel.FK_Asiakkaat_Postitoimipaikat" ManuallyRouted="false" />
+        <AssociationConnector Association="TilausDBModel.FK_Tilaukset_Asiakkaat" ManuallyRouted="false" />
+        <AssociationConnector Association="TilausDBModel.FK__Henkilot__Esimie__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="TilausDBModel.FK__Henkilot__Postin__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="TilausDBModel.FK__Shippers__Postin__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="TilausDBModel.FK_Tilaukset_Postitoimipaikat" ManuallyRouted="false" />
+        <AssociationConnector Association="TilausDBModel.FK__Tuotteet__Alkupe__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="TilausDBModel.FK_Tilausrivit_Tilaukset" ManuallyRouted="false" />
+        <AssociationConnector Association="TilausDBModel.FK_Tilausrivit_Tuotteet" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

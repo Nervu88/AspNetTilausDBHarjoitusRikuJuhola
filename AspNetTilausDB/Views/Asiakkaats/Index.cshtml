@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AspNetTilausDB.Asiakkaat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="container" style="margin: 25px;">
+    <br />
+    <br />
+    <h2>Asiakkaat</h2>
+
+    <a type="button" class="btn btn-info" href="~/Asiakkaats/Create/">Rekisteröi uusi asiakas</a>
+    <br />
+    <br />
+    <!-- contacts card -->
+    <div class="card card-default" id="card_contacts">
+        <div id="contacts" class="panel-collapse collapse show" aria-expanded="true" style="">
+            <ul class="list-group pull-down" id="contact-list">
+                @foreach (AspNetTilausDB.Asiakkaat prod in Model)
+                {
+                    <li class="list-group-item">
+                        <div class="row w-100">
+                            <div class="col-12 col-sm-6 col-md-3 px-0">
+                                <img src="/Kuvat/person.png" alt="picture" class="rounded-circle mx-auto d-block img-fluid asiakaskuva">
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-9 text-center text-sm-left">
+                                <label class="name lead">@prod.Nimi</label>
+                                <br>
+                                <span class="fas fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="Osoite"></span>
+                                <span class="text-muted small">@prod.Osoite</span>
+                                <br>
+                                <span class="fa fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="@prod.Postitoimipaikat.Postitoimipaikka"></span>
+                                <span class="text-muted">@prod.Postitoimipaikat.Postitoimipaikka @prod.Postinumero</span>
+                                <br>
+                                @Html.ActionLink("Edit", "Edit", new { id = prod.AsiakasID }) |
+                                @Html.ActionLink("Details", "Details", 
+                                    new { id = prod.AsiakasID },
+                                    new { @class = "btn modal-link" })|
+                                @Html.ActionLink("Delete", "Delete", new { id = prod.AsiakasID })
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+            <!--/contacts list-->
+        </div>
+    </div>
+</div>
+
+<br />
+
+<h3><a href="~/home/index">Etusivulle</a></h3>
+

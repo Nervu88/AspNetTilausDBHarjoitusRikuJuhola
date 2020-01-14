@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AspNetTilausDB.Henkilot>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<h2>Työntekijät</h2>
+<p>Nähdäksesi lisää tietoa työntekijöistä, paina NÄYTÄ painiketta.</p>
+<a type="button" class="btn btn-info" href="~/Henkilots/Create/">Rekisteröi uusi työntekijä</a>
+<br />
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Etunimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sukunimi)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Osoite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sahkoposti)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postitoimipaikat.Postitoimipaikka)
+        </th>
+        *@
+        <th>
+            Esimies
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etunimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sukunimi)
+            </td>
+           @* <td>
+                @Html.DisplayFor(modelItem => item.Osoite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sahkoposti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postitoimipaikat.Postinumero)
+            </td>
+               *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Esimiehet.EsimiesID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Henkilo_id }) |
+                @Html.ActionLink("Näytä", "Details", new { id = item.Henkilo_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Henkilo_id })
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+<p>Työntekijöiden määrä: @Model.Count().</p>
+
+
+<h3><a href="~/home/index">Etusivulle</a></h3>

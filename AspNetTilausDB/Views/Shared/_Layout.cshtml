@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TilausDB Harjoitus</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Kalakauppa (@ViewBag.LoggedStatus)</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@ViewBag.LoggausOsoite">@ViewBag.Loggaus</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Rikun Tietokanta Oy</a>
+                    <div class="dropdown-menu" style="">
+                        <a class="dropdown-item" href="~/home/About">Tietoa</a><div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="~/home/Contact">Yhteystiedot</a><div class="dropdown-divider"></div>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tietokanta DB</a>
+                    <div class="dropdown-menu" style="">
+                        <a class="dropdown-item" href="~/Tuotteets/Index">Tuotteet</a><div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="~/Asiakkaats/Index">Asiakkaat</a><div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="~/Henkilots/Index">Työntekijät</a><div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="~/Shippers/Index">Rahtarit</a><div class="dropdown-divider"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="oma-footer">
+            @using System.Globalization
+            @{
+                string loggausInfo = "";
+                if (Session["UserName"] == null)
+                {
+                    loggausInfo = "Et ole kirjautunut järjestelmään";
+                }
+                else
+                {
+                    loggausInfo = "Olet kirjatunut käyttäjänä: " + Session["UserName"];
+                }
+            }
+            <p>&copy; Kalakauppatietokanta by Riku Juhola, @loggausInfo, tänään on @DateTime.Today.ToString("D", CultureInfo.CreateSpecificCulture("fi-FI"))</p>
+        </footer>
+    </div>
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/popper")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

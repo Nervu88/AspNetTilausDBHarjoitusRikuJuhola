@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AspNetTilausDB.Tuotteet>
+
+@using System.Globalization
+@{
+    ViewBag.Title = "Tuotteet";
+}
+
+<h1>Tuotekuvasto</h1>
+<p>Tuotteita katalogissa: @Model.Count().</p>
+
+<a type="button" class="btn btn-info" href="~/Tuotteets/Create/">Lisää uusi tuote</a>
+<br />
+<br />
+<div class="container">
+    <div class="card-deck">
+        @foreach (AspNetTilausDB.Tuotteet prod in Model)
+        {
+            <div class="card-group">
+                <div class="card mb-4"  style="border: 5px solid darkslategrey;">
+                    <img class="card-img-top img-fluid" style="width: 300px; height:150px;" src="/Kuvat/@prod.ImageLink" alt="Card image cap">
+                    <div class="card-body">
+                        <h4 class="card-title">@prod.Nimi</h4>
+                        <p class="card-text">Tuotetietoja tähän</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><b>Hinta:</b> @prod.Ahinta €</li>
+                            <li class="list-group-item"><b>Varastosaldo:</b> @prod.VarastoSaldo KG</li>
+                            <li class="list-group-item"><b>Alkuperämaa:</b> @prod.Region.RegionLong (@prod.AlkuperaMaa)</li>
+                        </ul>
+                        <p class="card-text">
+                            @Html.ActionLink("Edit", "Edit", new { id = prod.TuoteID }) |
+                            @Html.ActionLink("Details", "Details", new { id = prod.TuoteID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = prod.TuoteID })
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <p>@DateTime.Now.ToString(new CultureInfo("fi-FI"))</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<h3><a href="~/home/index">Etusivulle</a></h3>
