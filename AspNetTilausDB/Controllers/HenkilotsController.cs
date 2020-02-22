@@ -163,7 +163,7 @@ namespace AspNetTilausDB.Controllers
                 {
                     Value = esinum.EsimiesID.ToString(),
                     Text = esinum.EsimiesID.ToString() + "  " + esinum.Etunimi
-                }); ;
+                });
             }
 
             ViewBag.Postinumero = new SelectList(postnumerot, "Value", "Text", henkilot.Postinumero);

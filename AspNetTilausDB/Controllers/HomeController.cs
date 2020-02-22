@@ -16,12 +16,14 @@ namespace AspNetTilausDB.Controllers
                 ViewBag.LoggedStatus = "Offline";
                 ViewBag.LoggausOsoite = "/Home/Login";
                 ViewBag.Loggaus = "Login";
+                ViewBag.frontTeksti = "Kirjaudu sisään järjestelmään...";
             }
             else
             {
                 ViewBag.LoggausOsoite = "/Home/LogOut";
                 ViewBag.Loggaus = "Log Out";
                 ViewBag.LoggedStatus = "Online";
+                ViewBag.frontTeksti = "Tervetuloa " + Session["UserName"];
             }
             return View();
 
@@ -65,26 +67,6 @@ namespace AspNetTilausDB.Controllers
                 }
                 ViewBag.Message = "Ota yhteyttä";
                     return View();
-            }
-        }
-
-        public ActionResult Map()
-        {
-            {
-                if (Session["UserName"] == null)
-                {
-                    ViewBag.LoggedStatus = "Offline";
-                    ViewBag.LoggausOsoite = "/Home/Login";
-                    ViewBag.Loggaus = "Login";
-                }
-                else
-                {
-                    ViewBag.LoggausOsoite = "/Home/LogOut";
-                    ViewBag.Loggaus = "Log Out";
-                    ViewBag.LoggedStatus = "Online";
-                }
-                ViewBag.Message = "Saapumisohje";
-                return View();
             }
         }
 
