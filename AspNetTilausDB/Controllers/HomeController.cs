@@ -97,15 +97,14 @@ namespace AspNetTilausDB.Controllers
             {
                 ViewBag.LoginMessage = "Onnistunut kirjautuminen";
                 ViewBag.LoggedStatus = "Online";
-                ViewBag.ryhma = LoggedUser.ryhma;
+                Session["ryhma"] = LoggedUser.ryhma;
                 Session["UserName"] = LoggedUser.UserName;
                 return RedirectToAction("Index", "Home"); //Tässä määritellään mihin onnistunut kirjautuminen johtaa --> Home/Index
             }
             else
             {
                 ViewBag.LoginMessage = "Kirjautuminen epäonnistui";
-                ViewBag.LoggedStatus = "Offline";
-                ViewBag.ryhma = "";
+                ViewBag.LoggedStatus = "Offline";     
                 LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
                 return View("Login", LoginModel);
             }
