@@ -12,7 +12,7 @@ namespace AspNetTilausDB
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    
+
     public partial class Login
     {
         public int LoginId { get; set; }
@@ -21,6 +21,7 @@ namespace AspNetTilausDB
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Anna salasana!")]
         public string PassWord { get; set; }
+        public string ryhma { get; set; }
 
         public string LoginErrorMessage { get; set; }
     }

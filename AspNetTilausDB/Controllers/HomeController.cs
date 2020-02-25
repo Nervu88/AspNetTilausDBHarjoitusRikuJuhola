@@ -97,6 +97,7 @@ namespace AspNetTilausDB.Controllers
             {
                 ViewBag.LoginMessage = "Onnistunut kirjautuminen";
                 ViewBag.LoggedStatus = "Online";
+                ViewBag.ryhma = LoggedUser.ryhma;
                 Session["UserName"] = LoggedUser.UserName;
                 return RedirectToAction("Index", "Home"); //Tässä määritellään mihin onnistunut kirjautuminen johtaa --> Home/Index
             }
@@ -104,6 +105,7 @@ namespace AspNetTilausDB.Controllers
             {
                 ViewBag.LoginMessage = "Kirjautuminen epäonnistui";
                 ViewBag.LoggedStatus = "Offline";
+                ViewBag.ryhma = "";
                 LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
                 return View("Login", LoginModel);
             }

@@ -321,6 +321,7 @@
       <DependentUpon>TilausDBEntity.edmx</DependentUpon>
       <LastGenOutput>TilausDBEntity.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="TilausDBEntity.edmx.sql" />
     <Content Include="TilausDBEntity.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>TilausDBEntity.edmx</DependentUpon>
